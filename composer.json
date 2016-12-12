@@ -1,0 +1,24 @@
+{
+  "name": "josh/faker",
+  "description": "A library for generate fake items",
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Alireza Josheghani",
+      "email": "josheghani.dev@gmail.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Josh\\Faker\\": "src/"
+    },
+    "files": [
+      "src/helpers.php"
+    ]
+  },
+  "require": {
+    "php": ">=5.4"
+  },
+  "minimum-stability": "dev"
+}
