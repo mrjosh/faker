@@ -8,6 +8,7 @@ namespace Josh\Faker;
  * @author Alireza Josheghani <josheghani.dev@gmail.com>
  * @since 12 Dec 2016
  * @property string $fullname
+ * @property string $firstname
  * @property string $lastname
  * @property integer $phone
  * @property integer $telephone
@@ -16,6 +17,7 @@ namespace Josh\Faker;
  * @property string $domain
  * @property string $website
  * @property string $pageUrl
+ * @property string $company
  */
 class Faker extends FakerBase {
 
