@@ -32,7 +32,7 @@ if(! function_exists('randomString')){
         $string  = '';
 
         for($i = 1;$i < $length;$i++){
-            $string .= $characters[rand(0,strlen($characters))];
+            $string .= $characters[rand(0,strlen($characters) - 1)];
         }
 
         return $string;

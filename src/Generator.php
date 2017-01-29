@@ -37,6 +37,17 @@ class Generator {
         'پیرو' , 'حیدری' , 'نجاران' , 'اسد نژاد' , 'صمدی' , 'اسدی' , 'کریمی' ,
         'حسینی' , 'الماسی' , 'صدیقی' , 'مسقطی' , 'علی دوستی' , 'کریمزاده' , 'کوت آبادی'
     ];
+    
+    /**
+     * List of companies
+     *
+     * @var array
+     */
+    protected $companies = [
+        'ای نتورک', 'خاورزمین', 'فرانش', 'کاروانرو', 'اسنپ', 'تپ سی', 'آواتک',
+        'بیدینگ' , 'سایت چک آپ' , 'شنبه' , 'دیجی کالا' , 'بامیلو' , 'ایرانسل' , 'همراه اول' ,
+        'سرآوا پارس' , 'ایران خودرو' , 'سایپا' , 'تاژ' , 'هومکر' , 'کاموا' , 'کانگرو'
+    ];
 
     /**
      * List of mail services
@@ -135,6 +146,21 @@ class Generator {
 
         return $this->families[$name];
     }
+    
+    
+    /**
+     * Get company name
+     *
+     * @author Vahid Almasi <vahid.almasi71@gmail.com>
+     * @since 29 Jan 2017
+     * @return mixed
+     */
+    public function company()
+    {
+        $name = array_rand($this->companies);
+
+        return $this->companies[$name];
+    }
 
     /**
      * Get random firstname and lastname
@@ -155,7 +181,7 @@ class Generator {
      * @since 13 Dec 2016
      * @return string
      */
-    public function telephone()
+    public function mobile()
     {
         $prefix = array_rand($this->prefixTelePhones);
 
@@ -171,7 +197,7 @@ class Generator {
      * @since 13 Dec 2016
      * @return string
      */
-    public function phone()
+    public function telephone()
     {
         $prefix = array_rand($this->prefixPhones);
 
