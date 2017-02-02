@@ -19,6 +19,7 @@ namespace Josh\Faker;
  * @property string $pageUrl
  * @property string $company
  * @property string $mobile
+ * @property string $address
  */
 class Faker extends FakerBase {
 
