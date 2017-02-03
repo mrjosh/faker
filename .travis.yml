@@ -8,4 +8,4 @@ php:
 script:
   - composer self-update
   - composer install
-  - phpunit --colors
+  - vendor/bin/phpunit --colors
