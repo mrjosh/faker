@@ -10,5 +10,8 @@ You can install this package throw the [Composer](http://getcomposer.org) by run
 composer require josh/faker
 ```
 
+## Usage
+
+
 ## License
 The MIT License (MIT). Please see [License File](LICENSE) for more information.
