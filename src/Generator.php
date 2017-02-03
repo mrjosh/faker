@@ -50,7 +50,7 @@ class Generator {
     ];
 
     /**
-     * List of companies
+     * List of addresse
      *
      * @var array
      */
@@ -315,7 +315,7 @@ class Generator {
     }
 
     /**
-     * Get address
+     * Get random address
      *
      * @author Vahid Almasi <vahid.almasi71@gmail.com>
      * @since 3 Feb 2017
