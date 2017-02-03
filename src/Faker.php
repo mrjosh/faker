@@ -10,7 +10,6 @@ namespace Josh\Faker;
  * @property string $fullname
  * @property string $firstname
  * @property string $lastname
- * @property integer $phone
  * @property integer $telephone
  * @property integer $age
  * @property string $email
@@ -20,40 +19,21 @@ namespace Josh\Faker;
  * @property string $company
  * @property string $mobile
  * @property string $address
+ * @method static fullname()
+ * @method static firstname()
+ * @method static lastname()
+ * @method static telephone()
+ * @method static age($min = 16,$max = 70)
+ * @method static email()
+ * @method static domain()
+ * @method static website()
+ * @method static pageUrl()
+ * @method static company()
+ * @method static mobile()
+ * @method static address()
  */
 class Faker
 {
-
-    /**
-     * Getter gender type
-     *
-     * @var string | null
-     */
-    protected $gender = null;
-
-    /**
-     * Set male format of firstnames
-     *
-     * @return $this
-     */
-    public function male()
-    {
-        $this->gender = 'male';
-
-        return $this;
-    }
-
-    /**
-     * Set female format of firstnames
-     *
-     * @return $this
-     */
-    public function female()
-    {
-        $this->gender = 'female';
-
-        return $this;
-    }
 
     /**
      * Call method from magic method
@@ -65,9 +45,23 @@ class Faker
      */
     public function __get($method)
     {
-        $instance = new Generator($this->gender);
+        $instance = new Generator();
 
         return $instance->$method();
+    }
+
+    /**
+     * @author Alireza Josheghani <josheghani.dev@gmail.com>
+     * @since 3 Feb 2017
+     * @param $method
+     * @param $args
+     * @return mixed
+     */
+    public static function __callStatic($method, $args)
+    {
+        $instance = new Generator();
+
+        return $instance->$method(...$args);
     }
 
 }
