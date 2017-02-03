@@ -2,131 +2,25 @@
 
 namespace Josh\Faker;
 
-class Generator {
-
-    /**
-     * Getter of gender type
-     *
-     * @var string | null
-     */
-    protected $gender = null;
+class Generator
+{
 
     /**
      * List of first names
      *
      * @var array
      */
-    protected $names = [
-        'male' => [
-            'عباس', 'وحید', 'علی', 'علیرضا', 'شاهرخ', 'سجاد', 'شایان' , 'حسام' , 'مهدی' ,
-            'حسن' , 'حمید'
-        ],
-        'female' => [
-            'شقایق', 'المیرا', 'شیما', 'مرجان', 'پرستو', 'نگار' , 'ترانه' , 'لیلا' , 'مریم' ,
-            'سحر' , 'زهرا'
-        ]
-    ];
+    protected $objects = [];
 
     /**
-     * List of last names
-     *
-     * @var array
-     */
-    protected $families = [
-        'الماسی', 'جوشقانی', 'جمالیان', 'جعفری', 'فیض', 'نیاکان', 'بیات',
-        'پیرو' , 'حیدری' , 'نجاران' , 'اسد نژاد' , 'صمدی' , 'اسدی' , 'کریمی' ,
-        'حسینی' , 'الماسی' , 'صدیقی' , 'مسقطی' , 'علی دوستی' , 'کریمزاده' , 'کوت آبادی'
-    ];
-    
-    /**
-     * List of companies
-     *
-     * @var array
-     */
-    protected $companies = [
-        'ای نتورک', 'خاورزمین', 'فرانش', 'کاروانرو', 'اسنپ', 'تپ سی', 'آواتک',
-        'بیدینگ' , 'سایت چک آپ' , 'شنبه' , 'دیجی کالا' , 'بامیلو' , 'ایرانسل' , 'همراه اول' ,
-        'سرآوا پارس' , 'ایران خودرو' , 'سایپا' , 'تاژ' , 'هومکر' , 'کاموا' , 'کانگرو'
-    ];
-
-    /**
-     * List of addresse
-     *
-     * @var array
-     */
-    protected $address = [
-        'میدان ونک، بزرگراه حقانی، نرسیده به جهان‌کودک، پ. ۶۳، ط. ۴',
-        'تهران ، خيابان گاندي ، خيابان پانزدهم ، پلاک 2',
-        'تهران ، خيابان انقلاب ، پلاک 832',
-        'تهران ، خيابان استاد نجات الهی ، کوچه شهید محمدی ، پلاک 4',
-        'اراک- خيابان شهيد بهشتي -دانشگاه اراک',
-        'خراسان رضوى- مشهد- قاسم آباد -بلوار ميثاق - ميثاق 20 -خسروي يك',
-        'بزرگراه شهید بابایی (غرب به شرق)، روبروی دانشگاه امام حسین (ع)، خروجی حکیمیه، خیابان شهید صدوقی، روبروی ضلع جنوبی شهرک شهید بهشتی خیابان چمن آرا، پردیس واحد دانشگاهی واحد تهران شمال',
-        'خیابان آزادی ،نبش خیابان رودکی',
-        'بزرگراه همت ،شرق به غرب ،ابتدای جنت آبادشمالی ،کوچه دانش',
-        'میدان بسیج ،ابتدای خیابان ابوذر ،جنب شهرداری منطقه 15',
-        'شهرکرد ،میدان دفاع مقدس ،جاده رحمتیه ،روبروی ساختمانهای مسکن مهر',
-        'تهران-خیابان آفریقا،بالاتر از چهار راه جهان کودک ، کوچه شهید صانعی پلاک 15',
-        'اردبیل ـ خیابان دانشگاه ـ خیابان 13 آبان ـ پلاک 48',
-        'كرج ـ جهانشهر ـ بلوار مولانا ـ بين خيابان كسري شمالي و فرمانداري شمالي ـ قطعه 1397ـ ساختمان نيلوفر',
-        'قزوین ـ خيابان فلسطين شرقي ـ نبش خيابان توحيد',
-        'تهران سعادت اباد میدان کاج خیابان سرو شرقی نبش خیابان علامه طباطبایی شمالی پلاک ۵'
-    ];
-
-    /**
-     * List of mail services
-     *
-     * @var array
-     */
-    protected $mailServices = [
-        'gmail.com' , 'mail.com' , 'yahoo.com' , 'outlook.com'
-    ];
-
-    /**
-     * List of telephone services
-     *
-     * @var array
-     */
-    protected $prefixTelePhones = [
-        912 , 931 , 932 , 933 , 901 , 921 , 919 , 912 , 913 , 917 ,
-        915 , 916 , 910 , 939 , 938 , 937 , 918 , 914 , 911 , 934
-    ];
-
-    /**
-     * List of phone services
-     *
-     * @var array
-     */
-    protected $prefixPhones = [
-        21 , 25 , 253 , 32 , 45 , 67 , 11 , 12 , 93 , 65 , 34 , 67
-    ];
-
-    /**
-     * List of protocols
-     *
-     * @var array
-     */
-    protected $protocols = [ 'http' , 'https' ];
-
-    /**
-     * List of domains
-     *
-     * @var array
-     */
-    protected $domains = [
-        '.com' , '.org' , '.ir' , '.net' , '.me' , '.info' , '.co'
-    ];
-
-    /**
-     * Generator constructor.
+     * Set objects, Generator constructor.
      *
      * @author Alireza Josheghani <josheghani.dev@gmail.com>
-     * @since 13 Dec 2016
-     * @param $gender
+     * @since 3 Feb 2017
      */
-    public function __construct($gender)
+    public function __construct()
     {
-        $this->gender = $gender;
+        $this->objects = require __DIR__ . '/../objects.php';
     }
 
     /**
@@ -138,23 +32,9 @@ class Generator {
      */
     public function firstname()
     {
-        $gender = $this->gender;
+        $name = array_rand($this->objects['names']);
 
-        if(! is_null($gender)){
-
-            $names = $this->names[$gender];
-
-            $name = array_rand($names);
-
-            return $names[$name];
-
-        }
-
-        $names = array_merge($this->names['male'],$this->names['female']);
-
-        $name = array_rand($names);
-
-        return $names[$name];
+        return $this->objects['names'][$name];
     }
 
     /**
@@ -166,9 +46,9 @@ class Generator {
      */
     public function lastname()
     {
-        $name = array_rand($this->families);
+        $name = array_rand($this->objects['families']);
 
-        return $this->families[$name];
+        return $this->objects['families'][$name];
     }
     
     
@@ -181,9 +61,9 @@ class Generator {
      */
     public function company()
     {
-        $name = array_rand($this->companies);
+        $name = array_rand($this->objects['companies']);
 
-        return $this->companies[$name];
+        return $this->objects['companies'][$name];
     }
 
     /**
@@ -207,11 +87,11 @@ class Generator {
      */
     public function mobile()
     {
-        $prefix = array_rand($this->prefixTelePhones);
+        $prefix = array_rand($this->objects['prefixTelePhones']);
 
-        $prefix = $this->prefixTelePhones[$prefix];
+        $prefix = $this->objects['prefixTelePhones'][$prefix];
 
-        return (string) '0' . $prefix . rand(1111111,9999999);
+        return string('0' . $prefix . randomNumber(7));
     }
 
     /**
@@ -223,11 +103,11 @@ class Generator {
      */
     public function telephone()
     {
-        $prefix = array_rand($this->prefixPhones);
+        $prefix = array_rand($this->objects['prefixPhones']);
 
-        $prefix = $this->prefixPhones[$prefix];
+        $prefix = $this->objects['prefixPhones'][$prefix];
 
-        return (string) '0' . $prefix . rand(1111111,9999999);
+        return string('0' . $prefix . randomNumber(7));
     }
 
     /**
@@ -239,11 +119,11 @@ class Generator {
      */
     public function email()
     {
-        $service = array_rand($this->mailServices);
+        $service = array_rand($this->objects['mailServices']);
 
-        $service = $this->mailServices[$service];
+        $service = $this->objects['mailServices'][$service];
 
-        return (string) randomString(30,'lowercase') . '@' . $service;
+        return string(randomString(30,'lowercase') . '@' . $service);
     }
 
     /**
@@ -255,11 +135,11 @@ class Generator {
      */
     public function domain()
     {
-        $domain = array_rand($this->domains);
+        $domain = array_rand($this->objects['domains']);
 
-        $domain = $this->domains[$domain];
+        $domain = $this->objects['domains'][$domain];
 
-        return (string) randomString(20,'lowercase') . $domain;
+        return string(randomString(20,'lowercase') . $domain);
     }
 
     /**
@@ -271,11 +151,11 @@ class Generator {
      */
     public function website()
     {
-        $protocol = array_rand($this->protocols);
+        $protocol = array_rand($this->objects['protocols']);
 
-        $protocol = $this->protocols[$protocol];
+        $protocol = $this->objects['protocols'][$protocol];
         
-        return $protocol . '://www' . $this->domain();
+        return string($protocol . '://www' . $this->domain());
     }
 
     /**
@@ -323,10 +203,9 @@ class Generator {
      */
     public function address()
     {
-        $name = array_rand($this->address);
+        $name = array_rand($this->objects['address']);
 
-        return $this->address[$name];
+        return string($this->objects['address'][$name]);
     }
-
 
 }
