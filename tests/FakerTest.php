@@ -87,5 +87,15 @@ class FakerTest extends PHPUnit_Framework_TestCase
     {
         $this->assertRegExp('/^(?:[-A-Za-z0-9]+\.)+[A-Za-z]{2,6}$/',Faker::domain());
     }
+
+    public function testCity()
+    {
+        $this->assertTrue(in_array(Faker::city(),$this->objects['city']));
+    }
+
+    public function testMeliCode()
+    {
+        $this->assertTrue(\Josh\Faker\isMeliCode(Faker::meliCode()));
+    }
     
 }

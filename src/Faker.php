@@ -19,6 +19,8 @@ namespace Josh\Faker;
  * @property string $company
  * @property string $mobile
  * @property string $address
+ * @property string $city
+ * @property string $meliCode
  * @method static fullname()
  * @method static firstname()
  * @method static lastname()
@@ -31,6 +33,8 @@ namespace Josh\Faker;
  * @method static company()
  * @method static mobile()
  * @method static address()
+ * @method static city()
+ * @method static meliCode()
  */
 class Faker
 {

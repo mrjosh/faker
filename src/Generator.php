@@ -209,6 +209,20 @@ class Generator
     }
 
     /**
+     * Get random city
+     *
+     * @author Vahid Almasi <vahid.almasi71@gmail.com>
+     * @since 4 Feb 2017
+     * @return mixed
+     */
+    public function city()
+    {
+        $name = array_rand($this->objects['city']);
+
+        return string($this->objects['city'][$name]);
+    }
+
+    /**
      * Generate random melicode number
      *
      * @author Alireza Josheghani <josheghani.dev@gmail.com>
