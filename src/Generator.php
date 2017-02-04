@@ -32,9 +32,7 @@ class Generator
      */
     public function firstname()
     {
-        $name = array_rand($this->objects['names']);
-
-        return $this->objects['names'][$name];
+        return $this->getRandomKey('names');
     }
 
     /**
@@ -46,9 +44,7 @@ class Generator
      */
     public function lastname()
     {
-        $name = array_rand($this->objects['families']);
-
-        return $this->objects['families'][$name];
+        return $this->getRandomKey('families');
     }
     
     
@@ -61,9 +57,7 @@ class Generator
      */
     public function company()
     {
-        $name = array_rand($this->objects['companies']);
-
-        return $this->objects['companies'][$name];
+        return $this->getRandomKey('companies');
     }
 
     /**
@@ -87,9 +81,7 @@ class Generator
      */
     public function mobile()
     {
-        $prefix = array_rand($this->objects['prefixTelePhones']);
-
-        $prefix = $this->objects['prefixTelePhones'][$prefix];
+        $prefix = $this->getRandomKey('prefixTelePhones');
 
         return string('0' . $prefix . randomNumber(7));
     }
@@ -103,9 +95,7 @@ class Generator
      */
     public function telephone()
     {
-        $prefix = array_rand($this->objects['prefixPhones']);
-
-        $prefix = $this->objects['prefixPhones'][$prefix];
+        $prefix = $this->getRandomKey('prefixPhones');
 
         return string('0' . $prefix . randomNumber(7));
     }
@@ -119,9 +109,7 @@ class Generator
      */
     public function email()
     {
-        $service = array_rand($this->objects['mailServices']);
-
-        $service = $this->objects['mailServices'][$service];
+        $service = $this->getRandomKey('mailServices');
 
         return string(randomString(30,'lowercase') . '@' . $service);
     }
@@ -135,9 +123,7 @@ class Generator
      */
     public function domain()
     {
-        $domain = array_rand($this->objects['domains']);
-
-        $domain = $this->objects['domains'][$domain];
+        $domain = $this->getRandomKey('domains');
 
         return string(randomString(20,'lowercase') . $domain);
     }
@@ -151,9 +137,7 @@ class Generator
      */
     public function website()
     {
-        $protocol = array_rand($this->objects['protocols']);
-
-        $protocol = $this->objects['protocols'][$protocol];
+        $protocol = $this->getRandomKey('domains');
         
         return string($protocol . '://www' . $this->domain());
     }
@@ -203,9 +187,7 @@ class Generator
      */
     public function address()
     {
-        $name = array_rand($this->objects['address']);
-
-        return string($this->objects['address'][$name]);
+        return $this->getRandomKey('address');
     }
 
     /**
@@ -217,9 +199,7 @@ class Generator
      */
     public function city()
     {
-        $name = array_rand($this->objects['city']);
-
-        return string($this->objects['city'][$name]);
+        return $this->getRandomKey('city');
     }
 
     /**
@@ -271,6 +251,30 @@ class Generator
         }
 
         return $code;
+    }
+
+    /**
+     * Get random key from array
+     *
+     * @author Alireza Josheghani <josheghani.dev@gmail.com>
+     * @since 4 Feb 2017
+     * @param $object
+     * @return string
+     */
+    private function getRandomKey($object = null)
+    {
+        $name = null;
+        $array = [];
+
+        if(is_array($object)){
+            $array = $object;
+            $name = array_rand($object);
+        } elseif(is_string($object)) {
+            $array = $this->objects[$object];
+            $name = array_rand($array);
+        }
+
+        return string($array[$name]);
     }
 
 }
