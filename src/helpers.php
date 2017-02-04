@@ -47,7 +47,7 @@ if(! function_exists('randomNumber')){
 
         $number  = '';
 
-        for($i = 1;$i < $length;$i++){
+        for($i = 1;$i <= $length;$i++){
             $num = $numbers[rand(0,strlen($numbers) - 1)];
             if($num === 0 && $i === 1){
                 continue;
@@ -95,7 +95,7 @@ if(! function_exists('randomString')){
 
         $string  = '';
 
-        for($i = 1;$i < $length;$i++){
+        for($i = 1;$i <= $length;$i++){
             $string .= $characters[rand(0,strlen($characters) - 1)];
         }
 

@@ -236,7 +236,7 @@ class Generator
 
         while($i <= 100){
 
-            $meli = randomNumber(11,true);
+            $meli = randomNumber(10,true);
 
             if(strlen($meli) != 10){
                 continue;
