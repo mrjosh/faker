@@ -74,6 +74,7 @@ if(! function_exists('randomString')){
      * @param int $length
      * @param null $type
      * @return string
+     * @throws \Exception
      */
     function randomString($length = 20, $type = null){
 
@@ -86,10 +87,10 @@ if(! function_exists('randomString')){
             throw new \Exception("The type of $type does not exists!");
         }
 
-        $characters = array_merge($characters);
-
         if(! is_null($type)){
             $characters = $characters[$type];
+        } else {
+            $characters = $characters['lowercase'] . $characters['uppercase'];
         }
 
         $string  = '';
