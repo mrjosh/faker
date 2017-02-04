@@ -46,7 +46,7 @@ class Faker
      */
     public function __get($method)
     {
-        return static::getGeneratorInstance()->$method();
+        return $this->getGeneratorInstance()->$method();
     }
 
     /**
@@ -58,7 +58,7 @@ class Faker
      */
     public static function __callStatic($method, $args)
     {
-        return static::getGeneratorInstance()->$method(...$args);
+        return self::getGeneratorInstance()->$method(...$args);
     }
 
 }
