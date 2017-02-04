@@ -208,4 +208,55 @@ class Generator
         return string($this->objects['address'][$name]);
     }
 
+    /**
+     * Generate random melicode number
+     *
+     * @author Alireza Josheghani <josheghani.dev@gmail.com>
+     * @since 4 Feb 2017
+     * @return int|null|string
+     */
+    public function meliCode()
+    {
+        $i = 0;
+        $code= null;
+
+        while($i <= 100){
+
+            $meli = randomNumber(11,true);
+
+            if(strlen($meli) != 10){
+                continue;
+            }
+
+            $c = substr($meli,9,1);
+
+            $n = substr($meli,0,1) * 10 +
+                substr($meli,1,1) * 9 +
+                substr($meli,2,1) * 8 +
+                substr($meli,3,1) * 7 +
+                substr($meli,4,1) * 6 +
+                substr($meli,5,1) * 5 +
+                substr($meli,6,1) * 4 +
+                substr($meli,7,1) * 3 +
+                substr($meli,8,1) * 2;
+
+            $r = $n - (int)($n / 11) * 11;
+
+            if (($r == 0 && $r == $c) || ($r == 1 && $c == 1) || ($r > 1 && $c == 11 - $r)) {
+
+                if(! isMeliCode($meli)){
+                    continue;
+                }
+
+                $code = $meli;
+
+            } else {
+                $i++;
+                continue;
+            }
+        }
+
+        return $code;
+    }
+
 }
