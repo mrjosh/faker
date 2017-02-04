@@ -6,5 +6,5 @@ php:
   - hhvm
 
 script:
-  - composer install
-  - phpunit --colors
+  - composer dump-autoload
+  - phpunit
