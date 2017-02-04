@@ -23,11 +23,11 @@ if(! function_exists('faker')){
      *
      * @author Alireza Josheghani <josheghani.dev@gmail.com>
      * @since 3 Feb 2016
-     * @return Faker
+     * @return Generator
      */
     function faker()
     {
-        return new Faker();
+        return new Generator();
     }
 }
 
@@ -49,7 +49,7 @@ if(! function_exists('randomNumber')){
 
         for($i = 1;$i <= $length;$i++){
             $num = $numbers[rand(0,strlen($numbers) - 1)];
-            if($num === 0 && $i === 1){
+            if($num == 0 && $i == 1){
                 continue;
             }
 
@@ -77,20 +77,19 @@ if(! function_exists('randomString')){
      */
     function randomString($length = 20, $type = null){
 
-        $uppercase = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        $characters = [
+            'uppercase' => 'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
+            'lowercase' => 'abcdefghijklmnopqrstuvwxyz'
+        ];
 
-        $lowercase = 'abcdefghijklmnopqrstuvwxyz';
+        if(($type !== 'uppercase' && $type !== 'lowercase') && ! is_null($type)){
+            throw new \Exception("The type of $type does not exists!");
+        }
 
-        if(is_null($type)){
+        $characters = array_merge($characters);
 
-            $characters = $uppercase . $lowercase;
-
-        } elseif ($type = 'lowercase'){
-
-            $characters = $lowercase;
-
-        } else {
-            $characters = $uppercase;
+        if(! is_null($type)){
+            $characters = $characters[$type];
         }
 
         $string  = '';
