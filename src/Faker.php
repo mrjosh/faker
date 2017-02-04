@@ -31,6 +31,7 @@ namespace Josh\Faker;
  * @method static company()
  * @method static mobile()
  * @method static address()
+ * @method static city()
  */
 class Faker
 {
