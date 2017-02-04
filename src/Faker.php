@@ -7,20 +7,6 @@ namespace Josh\Faker;
  *
  * @author Alireza Josheghani <josheghani.dev@gmail.com>
  * @since 12 Dec 2016
- * @property string $fullname
- * @property string $firstname
- * @property string $lastname
- * @property integer $telephone
- * @property integer $age
- * @property string $email
- * @property string $domain
- * @property string $website
- * @property string $pageUrl
- * @property string $company
- * @property string $mobile
- * @property string $address
- * @property string $city
- * @property string $meliCode
  * @method static fullname()
  * @method static firstname()
  * @method static lastname()
@@ -38,6 +24,17 @@ namespace Josh\Faker;
  */
 class Faker
 {
+    /**
+     * Get Generator instance
+     *
+     * @author Alireza Josheghani <josheghani.dev@gmail.com>
+     * @since 4 Feb 2017
+     * @return Generator
+     */
+    public function getGeneratorInstance()
+    {
+        return new Generator();
+    }
 
     /**
      * Call method from magic method
@@ -49,9 +46,7 @@ class Faker
      */
     public function __get($method)
     {
-        $instance = new Generator();
-
-        return $instance->$method();
+        return static::getGeneratorInstance()->$method();
     }
 
     /**
@@ -63,9 +58,7 @@ class Faker
      */
     public static function __callStatic($method, $args)
     {
-        $instance = new Generator();
-
-        return $instance->$method(...$args);
+        return static::getGeneratorInstance()->$method(...$args);
     }
 
 }
