@@ -25,18 +25,6 @@ namespace Josh\Faker;
 class Faker
 {
     /**
-     * Get Generator instance
-     *
-     * @author Alireza Josheghani <josheghani.dev@gmail.com>
-     * @since 4 Feb 2017
-     * @return Generator
-     */
-    public function getGeneratorInstance()
-    {
-        return new Generator();
-    }
-
-    /**
      * Call method from magic method
      *
      * @author Alireza Josheghani <josheghani.dev@gmail.com>
@@ -46,7 +34,7 @@ class Faker
      */
     public function __get($method)
     {
-        return $this->getGeneratorInstance()->$method();
+        return faker()->$method();
     }
 
     /**
@@ -58,7 +46,7 @@ class Faker
      */
     public static function __callStatic($method, $args)
     {
-        return self::getGeneratorInstance()->$method(...$args);
+        return faker()->$method(...$args);
     }
 
 }
