@@ -211,7 +211,8 @@ class Generator
      */
     public function meliCode()
     {
-        $i = 0;
+        $i = 1;
+        
         $code= null;
 
         while($i <= 100){
@@ -248,6 +249,11 @@ class Generator
                 $i++;
                 continue;
             }
+            
+            if(is_null($code)){
+                continue;
+            }
+            
         }
 
         return $code;
