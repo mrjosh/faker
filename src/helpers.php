@@ -49,7 +49,9 @@ if(! function_exists('randomNumber')){
 
         for($i = 1;$i <= $length;$i++){
             $num = $numbers[rand(0,strlen($numbers) - 1)];
+            
             if($num == 0 && $i == 1){
+                $i = 1;
                 continue;
             }
 
