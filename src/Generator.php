@@ -211,11 +211,28 @@ class Generator
      */
     public function meliCode()
     {
-        $i = 1;
-        
-        $code= null;
+        $code = $this->generateMeliCode();
 
-        while($i <= 100){
+        if(is_null($code)){
+            $code = $this->generateMeliCode();
+        }
+
+        return $code;
+    }
+
+    /**
+     * Generate meli code
+     *
+     * @author Alireza Josheghani <josheghani.dev@gmail.com>
+     * @since 5 Feb 2017
+     * @return int|null|string
+     */
+    private function generateMeliCode()
+    {
+
+        $code = null;
+
+        for($i = 1;$i < 100;$i++){
 
             $meli = randomNumber(10,true);
 
@@ -246,14 +263,10 @@ class Generator
                 $code = $meli;
 
             } else {
-                $i++;
                 continue;
             }
-            
-            if(is_null($code)){
-                continue;
-            }
-            
+
+            $i++;
         }
 
         return $code;
