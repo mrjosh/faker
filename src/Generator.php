@@ -83,7 +83,9 @@ class Generator
     {
         $prefix = $this->getRandomKey('prefixTelePhones');
 
-        return string('0' . $prefix . randomNumber(7));
+        $phone = string('0' . $prefix . randomNumber(7));
+
+        return ( strlen($phone) !== 11 ? $phone . rand(1,10) : $phone );
     }
 
     /**
@@ -229,7 +231,6 @@ class Generator
      */
     private function generateMeliCode()
     {
-
         $code = null;
 
         for($i = 1;$i < 100;$i++){
@@ -282,7 +283,7 @@ class Generator
      */
     private function getRandomKey($object = null)
     {
-        $name = null;
+        $name = 0;
         $array = [];
 
         if(is_array($object)){
