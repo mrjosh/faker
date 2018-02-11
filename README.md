@@ -4,7 +4,7 @@
 [![Latest Unstable Version](https://poser.pugx.org/josh/faker/v/unstable)](//packagist.org/packages/josh/faker)
 [![License](https://poser.pugx.org/josh/faker/license)](https://packagist.org/packages/josh/faker)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/iamalirezaj/faker/badges/quality-score.png)](https://scrutinizer-ci.com/g/iamalirezaj/faker)
-
+[![Say Thanks!](https://img.shields.io/badge/Say%20Thanks-!-1EAEDB.svg)](https://saythanks.io/to/iamalirezaj)
 # Josh faker component
 A persian faker library for php
 
