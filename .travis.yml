@@ -3,8 +3,9 @@ php:
   - 5.6
   - 7.0
   - 7.1
+  - 7.2
   - hhvm
 
 script:
-  - composer dump-autoload
-  - phpunit
+  - composer install
+  - ./vendor/bin/phpunit
