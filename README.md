@@ -30,7 +30,7 @@ use Josh\Faker\Faker;
 | --- | --- |
 | ``` Faker::firstname() ``` | Return random firstname |
 | ``` Faker::lastname() ``` | Return random lastname |
-| ``` Faker::fulltname() ``` | Return random fullname |
+| ``` Faker::fullname() ``` | Return random fullname |
 | ``` Faker::company() ``` | Return random company name |
 | ``` Faker::mobile() ``` | Return random mobile number |
 | ``` Faker::telephone() ``` | Return random telephone number |
